@@ -1,0 +1,27 @@
+{
+  "name": "webdriverjs-experimental",
+  "version": "1.0.0",
+  "description": "",
+  "main": "search.why.sencha.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliverfrost/webdriverjs_experimental.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliverfrost/webdriverjs_experimental/issues"
+  },
+  "homepage": "https://github.com/oliverfrost/webdriverjs_experimental#readme",
+  "dependencies": {
+    "asserts": "^4.0.2",
+    "chai": "^3.5.0",
+    "jquery": "^2.2.3",
+    "mocha": "^2.4.5",
+    "selenium-webdriver": "^2.53.2",
+    "underscore": "^1.8.3"
+  }
+}
