@@ -5,8 +5,19 @@ var webdriver = require('selenium-webdriver'),
 var assert = require("chai").assert;
 var _ = require('underscore');
 
+
+var capabilities = {
+    'browserName' : 'firefox',
+    'name' : 'serge',
+    'surname' : 'frost'
+};
+
+
+
+
 var driver = new webdriver.Builder()
-    .forBrowser('firefox')
+   // .forBrowser('safari')
+    .withCapabilities(capabilities)
     .build();
 
 driver.manage().window().maximize();
