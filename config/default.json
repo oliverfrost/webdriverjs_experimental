@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://www.sencha.com/",
+  "explicitWaitMS": 2000,
+  "mochaTimeoutMS": 10000
+}
