@@ -46,8 +46,11 @@ describe('Try to submit contact us form with incorrect data', function() {
         contactPage.fillTitleField("Some Title");
         contactPage.fillEmailField("some@email@com");
         contactPage.fillPhoneField("+380333333333");
-        contactPage.selectProductInterest();
-        contactPage.selectCountry();
+        contactPage.selectProductInterest("Sencha Test");
+
+        contactPage.waitFor(5000);
+        
+        contactPage.selectCountry("INDIA");
         contactPage.fillCommentsArea("Just some random text.");
         contactPage.clickSubmitButton();
 
