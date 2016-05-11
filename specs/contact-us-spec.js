@@ -1,5 +1,4 @@
-var assert = require('assert'),
-    webdriver = require('selenium-webdriver'),
+var webdriver = require('selenium-webdriver'),
     StartPage = require('../lib/StartPage.js'),
     ContactUsPage = require('../lib/ContactUsPage.js'),
     assert = require("chai").assert;
@@ -22,7 +21,6 @@ before(function(done) {
     driver.manage().timeouts().implicitlyWait(10000);
 
     driver.get("https://www.sencha.com/").then(function () {
-        console.log("Driver Started");
         done();
     });
 });
@@ -31,11 +29,6 @@ before(function(done) {
 after(function(done) {
     driver.quit().then(done);
 });
-
-
-// beforeEach(function() {
-//   driver.get("https://www.sencha.com/");
-// });
 
 
 // tests { Just browse the website, fill the form and click button }
@@ -58,12 +51,9 @@ describe('Try to submit contact us form with incorrect data', function() {
         contactPage.fillCommentsArea("Just some random text.");
         contactPage.clickSubmitButton();
 
-        driver.get("http://google.com").then(function(){
-            console.log("TEST FINISHED");
-            done();
-        });
+        contactPage.incorrectEmailTip.getText()
+            .then(tipText => assert.include(tipText, "Must be valid email", "[ERROR] Tip text do not match."))
+            .then(done);
     });
-
-
 });
 
