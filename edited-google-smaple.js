@@ -20,8 +20,8 @@ beforeEach(function(done) {
                 'browserName': 'firefox'
             })
         .build();
-    
-    
+
+
     // error handling
     process.on('uncaughtException', function(err) {
         console.log("My error handler... " + err);
