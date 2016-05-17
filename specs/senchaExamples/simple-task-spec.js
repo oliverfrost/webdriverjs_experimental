@@ -1,4 +1,4 @@
-//http://examples.sencha.com/extjs/6.0.2/examples/classic/simple-tasks/index.html
+
 
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -18,7 +18,6 @@ var capabilities = {
 
 
 before(function(done) {
-    console.log("TEST STARTED!\n");
     driver = new webdriver.Builder()
         .withCapabilities(capabilities)
         .build();
@@ -43,26 +42,22 @@ after(function(done) {
 
 
 describe('Add/remove new List; Add/Remove new Task', function() {
+    // testing http://examples.sencha.com/extjs/6.0.2/examples/classic/simple-tasks/index.html
 
-    it('Should add new task into the list', function() {
-        
+
+    it('Should add new task into the list', function(done) {
         let taskName = "My Task";
         
-        var tasksPage = new TasksPage(driver);
+        let tasksPage = new TasksPage(driver);
         tasksPage.addNewTask(taskName);
-        // tasksPage.taskTitle().then(taskTitle => assert.equal(taskName, "[ERROR] Task title do not match."));//.then(done));
-        // //done();
-
-
-        console.log("TEST HANDLED!\n");
-        
-        
+        tasksPage.lastTaskTitle.then(function(taskTitle) {
+            assert.equal(taskTitle, taskName, "[ERROR] Task title do not match.");
+            done();
+        });
     });
 
 
-    it('aaa', function() {
-        console.log("SECOND TEST HANDLED!");
-    });
+
    
 });
 
